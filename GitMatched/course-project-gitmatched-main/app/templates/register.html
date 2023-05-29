@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="bg-white min-h-screen overflow-auto flex flex-col items-center justify-center px-2">
+    <h1 class="mb-8 text-3xl text-center">Register</h1>
+    <form action="" method="post" class="w-full max-w-sm rounded-lg shadow-md bg-white p-8">
+      {{ form.hidden_tag() }}
+      <div class="mb-4">
+        <label for="username" class="block text-gray-700 font-bold mb-2">Username</label>
+        
+        {{ form.username(size=32, class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-amber-300") }}
+        {% for error in form.username.errors %}
+        <p class="text-red-500 text-xs italic">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+        {{ form.email(size=64, class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-amber-300") }}
+        {% for error in form.email.errors %}
+        <p class="text-red-500 text-xs italic">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <div class="mb-4">
+        <label for="code_snippet" class="block text-gray-700 font-bold mb-2">Code Snippet</label>
+        {{ form.code_snippet(cols=80, rows=10, class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-amber-300") }}
+        {% for error in form.code_snippet.errors %}
+        <p class="text-red-500 text-xs italic">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <div class="mb-4">
+        <label for="code_snippet_lang" class="block text-gray-700 font-bold mb-2">Code Snippet Language</label>
+        {{ form.code_snippet_lang(cols=80, rows=10, class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-amber-300") }}
+        {% for error in form.code_snippet_lang.errors %}
+        <p class="text-red-500 text-xs italic">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <div class="mb-4">
+        <label for="matching_lang" class="block text-gray-700 font-bold mb-2">Matching Language (what language do you want your match to prefer?)</label>
+        {{ form.matching_lang(cols=80, rows=10, class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-amber-300") }}
+        {% for error in form.matching_lang.errors %}
+        <p class="text-red-500 text-xs italic">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+        {{ form.password(size=32, class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-amber-300") }}
+        {% for error in form.password.errors %}
+        <p class="text-red-500 text-xs italic">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <div class="mb-6">
+        <label for="password2" class="block text-gray-700 font-bold mb-2">Confirm Password</label>
+        {{ form.password2(size=32, class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-amber-300") }}
+        {% for error in form.password2.errors %}
+        <p class="text-red-500 text-xs italic">{{ error }}</p>
+        {% endfor %}
+      </div>
+      <div class="flex items-center justify-between">
+        <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          {{ form.submit() }}
+        </button>
+      </div>
+    </form>
+</div>  
+{% endblock %}
